@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daasuu.bl.BubbleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/padding_5"
+    app:bl_arrowDirection="right_center"
+    app:bl_arrowHeight="12dp"
+    app:bl_arrowPosition="16dp"
+    app:bl_arrowWidth="8dp"
+    app:bl_bubbleColor="@color/bubble_green"
+    app:bl_cornersRadius="15dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Testing Bubble Layout"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/bubble_layout_viewpager2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+</com.daasuu.bl.BubbleLayout>
