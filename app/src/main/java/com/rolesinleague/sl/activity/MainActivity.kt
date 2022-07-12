@@ -1,5 +1,6 @@
 package com.rolesinleague.sl.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.daasuu.bl.BubbleLayout
 import com.daasuu.bl.BubblePopupHelper
 import com.rolesinleague.sl.R
+import com.rolesinleague.sl.adapter.GoalKeeperFragmentStateAdapter
 import com.thekhaeng.pushdownanim.PushDownAnim
 
 
@@ -36,6 +38,9 @@ class MainActivity: AppCompatActivity() {
     private lateinit var strikerPopupWindow: PopupWindow
 
     private lateinit var goalKeeperEmptyView: View
+    private lateinit var defenderEmptyView: View
+    private lateinit var midfieldEmptyView: View
+    private lateinit var strikerEmptyView: View
 
     private var goalKeeperBubbleWidth = 0
     private var defenderBubbleWidth = 0
@@ -62,25 +67,6 @@ class MainActivity: AppCompatActivity() {
 
     private fun setupAllClickListeners() {
         setupGoalKeeperRootClickListener()
-    }
-
-    private fun initRoots() {
-        goalKeeperRoot = findViewById(R.id.goalkeeper_root)
-        defenderRoot = findViewById(R.id.defender_root)
-        midfieldRoot = findViewById(R.id.midfielder_root)
-        strikerRoot = findViewById(R.id.striker_root)
-    }
-
-    private fun initBubbleLayouts() {
-        goalKeeperBubbleLayout = layoutInflater.inflate(R.layout.bubble_layout, null) as BubbleLayout
-        defenderBubbleLayout = findViewById(R.id.defender_bubble_layout)
-        midfieldBubbleLayout = findViewById(R.id.midfielder_bubble_layout)
-        strikerBubbleLayout = findViewById(R.id.striker_bubble_layout)
-
-        goalKeeperBubbleLayout.apply {
-            measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
-            goalKeeperBubbleWidth = measuredWidth
-        }
     }
 
     private fun setupAllPopUpWindows() {
@@ -112,20 +98,62 @@ class MainActivity: AppCompatActivity() {
 
     }
 
+    private fun initRoots() {
+        goalKeeperRoot = findViewById(R.id.goalkeeper_root)
+        defenderRoot = findViewById(R.id.defender_root)
+        midfieldRoot = findViewById(R.id.midfielder_root)
+        strikerRoot = findViewById(R.id.striker_root)
+    }
+
+    @SuppressLint("InflateParams")
+    private fun initBubbleLayouts() {
+        goalKeeperBubbleLayout = layoutInflater.inflate(R.layout.bubble_layout, null) as BubbleLayout
+        defenderBubbleLayout = layoutInflater.inflate(R.layout.bubble_layout, null) as BubbleLayout
+        midfieldBubbleLayout = layoutInflater.inflate(R.layout.bubble_layout, null) as BubbleLayout
+        strikerBubbleLayout = layoutInflater.inflate(R.layout.bubble_layout, null) as BubbleLayout
+
+        goalKeeperBubbleLayout.apply {
+            measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+            goalKeeperBubbleWidth = measuredWidth
+        }
+
+        defenderBubbleLayout.apply {
+            measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+            defenderBubbleWidth = measuredWidth
+        }
+
+        midfieldBubbleLayout.apply {
+            measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+            midfieldBubbleWidth  = measuredWidth
+        }
+
+        strikerBubbleLayout.apply {
+            measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+            strikerBubbleWidth = measuredWidth
+        }
+
+    }
+
+
     private fun initViewPagers() {
-        goalKeeperViewPager2 = findViewById(R.id.goalkeeper_viewpager2)
-        defenderViewPager2 = findViewById(R.id.defender_viewpager2)
-        midfieldViewPager2 = findViewById(R.id.midfielder_viewpager2)
-        strikerViewPager2 = findViewById(R.id.striker_viewpager2)
+        goalKeeperViewPager2 = goalKeeperBubbleLayout.findViewById(R.id.bubble_layout_viewpager2)
+        //defenderViewPager2 = defenderBubbleLayout.findViewById(R.id.bubble_layout_viewpager2)
+        //midfieldViewPager2 = midfieldBubbleLayout.findViewById(R.id.bubble_layout_viewpager2)
+        //strikerViewPager2 = strikerBubbleLayout.findViewById(R.id.bubble_layout_viewpager2)
 
         goalKeeperViewPager2.apply {
-            // adapter = PlayerFragmentStateAdapter(this@MainActivity, GoalKeepers.goalKeeperList)
+            orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            adapter = GoalKeeperFragmentStateAdapter(this@MainActivity)
+
         }
 
     }
 
     private fun initEmptyViews() {
         goalKeeperEmptyView = findViewById(R.id.goalkeeper_empty_view)
+        defenderEmptyView = findViewById(R.id.defender_empty_view)
+        midfieldEmptyView = findViewById(R.id.midfielder_empty_view)
+        strikerEmptyView = findViewById(R.id.striker_empty_view)
     }
 
     private fun setupGoalKeeperRootClickListener() {
