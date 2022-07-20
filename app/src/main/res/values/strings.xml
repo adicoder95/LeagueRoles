@@ -1,4 +1,27 @@
-<resources>
+﻿<resources>
     <string name="app_name">League Roles</string>
+
     <string name="test_name">АЛЕКСАНДР ФОМИН</string>
+    <string name="test_first_name">АЛЕКСАНДР</string>
+    <string name="test_last_name">ЖЕМАЛЕТДИНОВ</string>
+    <string name="test_dob">09.17.1990</string>
+    <string name="test_club_first_name">Зенит</string>
+    <string name="test_club_last_name">Краснодар</string>
+    <string name="test_age">25 Года</string>
+    <string name="test_debut_date">04.16.2007</string>
+    <string name="test_num_of_games">20</string>
+    <string name="test_num_of_goals">43</string>
+    <string name="test_zero">0</string>
+    <string name="test_tournament">ЧМ 2022. ОТБОРОЧНЫЙ ТУРНИР</string>
+
+    <string name="club">Клуб</string>
+
+    <string name="date_of_birth">Дата рождения</string>
+    <string name="debut">Дебют</string>
+    <string name="no_of_games">Игры</string>
+    <string name="goals_conceded">Пропущенные</string>
+    <string name="goals_scored">Голы</string>
+    <string name="statistics">СТАТИСТИКА</string>
+    <string name="tournament">ТУРНИР</string>
+    <string name="total">ВСЕГО</string>
 </resources>

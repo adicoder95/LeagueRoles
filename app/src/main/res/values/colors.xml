@@ -14,4 +14,15 @@
     <color name="striker_zone_color">#AD5CFF40</color>
 
     <color name="bubble_green">#599674</color>
+    <color name="stats_background">#5CA879</color>
+    <color name="role_background">#E0BD02</color>
+    <color name="deep_green">#45785C</color>
+    <color name="stats_text_background">#427657</color>
+    <color name="ash">#B6B6B6</color>
+    <color name="circle_green">#497F61</color>
+    <color name="cards_root_background">#ECECEC</color>
+    <color name="yellow_card_color">#FED947</color>
+    <color name="red_card_color">#FE1010</color>
+
+
 </resources>
